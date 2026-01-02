@@ -1,13 +1,22 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+import dotenv from "dotenv";
+import { connectDb, ExpressApp } from './services';
 
-const app = express();
+dotenv.config();
 
-app.use(express.json());
+const StartServer = async () => {
+    const app = express();
 
-app.use("/", (req: Request, res: Response) => {
-    return res.status(200).json({ message: "Customer Service is up and running!" });
-})
+    await connectDb();
 
-app.listen(8001, () => {
-    console.log("Customer Service is running on port 8001");
-});
+    await ExpressApp(app);
+
+    const port = process.env.PORT;
+
+    app.listen(port, () => {
+        console.clear();
+        console.log("App is listening to the port", port);
+    });
+}
+
+StartServer();
