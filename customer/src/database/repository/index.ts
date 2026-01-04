@@ -1,0 +1,1 @@
+export { default as CustomerRepository } from "./customer-repository";

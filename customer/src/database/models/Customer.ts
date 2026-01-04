@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const CustomerSchema = new mongoose.Schema({
+export const CustomerSchema = new mongoose.Schema({
     email: String,
     password: String,
     phone: String,
@@ -44,5 +44,5 @@ const CustomerSchema = new mongoose.Schema({
     timestamps: true
 });
 
-export const Customer = mongoose.model('customer', CustomerSchema);
+export const CustomerModel = mongoose.model('customer', CustomerSchema);
 

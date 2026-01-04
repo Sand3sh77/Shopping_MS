@@ -9,3 +9,18 @@ export interface AppErrorOptions {
     errorStack?: unknown;
     logError?: boolean;
 }
+
+export type ValidatePasswordProps = {
+    enteredPassword: string;
+    savedPassword: string;
+};
+
+export type GeneratePasswordProps = {
+    password: string;
+    salt: string;
+};
+
+export type AuthPayload={
+    _id: string;
+    email: string;
+}
